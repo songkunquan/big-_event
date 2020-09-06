@@ -1,6 +1,6 @@
-$(function () {
-    getUserInfo()
-})
+
+getUserInfo()
+
 // 获取用户信息
 function getUserInfo() {
     $.ajax({
@@ -10,7 +10,7 @@ function getUserInfo() {
         //     Authorization: localStorage.getItem("token")
         // },
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             if (res.status !== 0) {
                 return layer.msg("获取用户信息失败！")
             }
@@ -27,7 +27,7 @@ function renderAvatar(user) {
 
     if (user.user_pic !== null) {
         $(".layui-nav-img").prop("src", user.user_pic).show()
-        $(".ext-avatar").hide()
+        $(".text-avatar").hide()
     } else {
         $(".text-avatar").html(name[0].toUpperCase()).show()
         $(".layui-nav-img").prop("src", user.user_pic).hide()
